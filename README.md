@@ -1,4 +1,4 @@
-# CourseProject
+# Recipe book with Shopping list
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
 
