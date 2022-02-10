@@ -1,6 +1,8 @@
 # Recipe book with Shopping list
 
+A app where you can store all your favorite recipes and also add ingredients to shopping list.<br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
+### https://recipe-book-rahul.web.app/
 
 ## Development server
 
