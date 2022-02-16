@@ -1,10 +1,10 @@
 <div class="mt-4"></div>
 <div class="row">
     <div class="col-12">
-        <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="rounded img-fluid" width="50%">
+        <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="rounded img-fluid" width="80%">
     </div>
 </div>
-<div class="row">
+<div class="row my-2">
     <div class="col-12">
         <h1>{{recipe.name}}</h1>
     </div>
@@ -23,13 +23,17 @@
        </div>
     </div>
 </div>
-<div class="row">
+<div class="row my-2">
     <div class="col-12">
         {{recipe.description}}
     </div>
 </div>
 <div class="row">
     <div class="col-12">
-        Ingredients
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let ing of recipe.ingredients">
+                {{ing.name}} - {{ing.amount}}
+            </li>
+        </ul>
     </div>
 </div>
