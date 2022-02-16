@@ -15,6 +15,10 @@ export class ShoppingListService {
   constructor() { }
 
   getIngredients(){
-    return this.ingredients.splice(0);
+    return this.ingredients;
+  }
+
+  addIngredients(ingredient : Ingredients){
+    this.ingredients.push(ingredient);
   }
 }
