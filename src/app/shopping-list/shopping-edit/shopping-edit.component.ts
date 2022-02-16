@@ -19,7 +19,7 @@ export class ShoppingEditComponent implements OnInit {
 
   onAddIngredient(){
     if( this.nameRef.nativeElement.value != "" && this.amountRef.nativeElement.value != "" )
-    this.shoppingListService.addIngredients(new Ingredients(this.nameRef.nativeElement.value,this.amountRef.nativeElement.value));
+    this.shoppingListService.addIngredient(new Ingredients(this.nameRef.nativeElement.value,this.amountRef.nativeElement.value));
   }
 
 }

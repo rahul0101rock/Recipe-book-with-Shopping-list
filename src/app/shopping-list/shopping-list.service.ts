@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 export class ShoppingListService {
 
   private ingredients:Ingredients[] = [
-    new Ingredients("Eggs",4),
+    new Ingredients("Almond",20),
     new Ingredients("Chocolate Bars",5),
-    new Ingredients("Bread",10)
+    new Ingredients("Cashews",25)
   ];
 
   constructor() { }
@@ -18,7 +18,12 @@ export class ShoppingListService {
     return this.ingredients;
   }
 
-  addIngredients(ingredient : Ingredients){
+  addIngredient(ingredient : Ingredients){
     this.ingredients.push(ingredient);
   }
+
+  addIngredients(ingredients : Ingredients[]){
+    this.ingredients.push(...ingredients);
+  }
+
 }
