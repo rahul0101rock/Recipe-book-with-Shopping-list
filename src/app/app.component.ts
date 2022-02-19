@@ -6,11 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Course_Project';
+  title = 'Recipe Book';
 
-  currf= 'recipe';
-
-  onNavigate(event: any){
-    this.currf=event;
-  }
 }
