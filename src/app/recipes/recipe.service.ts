@@ -17,6 +17,11 @@ export class RecipeService {
     [
       new Ingredients("Egg",4),
       new Ingredients("Honey",1)
+    ]),
+    new Recipe("Hamburger","This is a Hamburger","https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg",
+    [
+      new Ingredients("Burger Bun",2),
+      new Ingredients("Patty",1)
     ])
   ];
 

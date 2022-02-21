@@ -1,1 +1,2 @@
-<p>recipe-edit works!</p>
+<p class="my-5 text-center text-secondary h5" *ngIf="!editMode; else edit">You can now add a new Recipe</p>
+<ng-template #edit><p class="my-5 text-center text-secondary h5">You can now edit this Recipe</p></ng-template>
