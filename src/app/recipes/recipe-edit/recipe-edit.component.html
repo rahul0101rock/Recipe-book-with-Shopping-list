@@ -1,2 +1,50 @@
-<p class="my-5 text-center text-secondary h5" *ngIf="!editMode; else edit">You can now add a new Recipe</p>
-<ng-template #edit><p class="my-5 text-center text-secondary h5">You can now edit this Recipe</p></ng-template>
+<div class="row mt-4">
+    <div class="col-md-12">
+        <form>
+            <div class="row">
+                <div class="col-12">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" class="form-control">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <label for="imagePath">Image Path</label>
+                    <input id="imagePath" name="imagePath" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <img src="" class="rounded img-fluid">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" class="form-control" rows="6"></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row md-2">
+                        <div class="col-7">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-outline-danger float-end"><i class="fa fa-trash"></i></button>
+                        </div>
+                    </div>  
+                    <hr>
+                    <button type="button" class="btn btn-outline-success"><i class="fa fa-plus"></i> Add Ingredient</button>
+                    <button type="submit" class="btn btn-outline-danger float-end">Cancel</button>
+                    <button type="button" class="btn btn-outline-success mx-2 float-end">Save</button>   
+                </div>
+            </div>  
+        </form>
+    </div>
+</div>
