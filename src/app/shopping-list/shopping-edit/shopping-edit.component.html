@@ -1,15 +1,17 @@
-<div class="row mt-4">
-    <div class=" col-md-5  form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" class="form-control" #nameInput >
+<form (ngSubmit)="onAddIngredient(f)" #f="ngForm">
+    <div class="row mt-4">
+        <div class=" col-md-5  form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" name="name" ngModel required>
+        </div>
+        <div class="col-md-3">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" class="form-control" name="amount" ngModel required pattern="^[1-9]+[0-9]*$"> 
+        </div>
+        <div class="col-md-auto mt-4">
+            <button class="btn btn-outline-success" [disabled]="!f.valid"> <i class="fa fa-plus"></i></button>
+            <button class="btn btn-outline-danger mx-2"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-outline-primary"><i class="fa fa-refresh"></i></button>
+        </div>
     </div>
-    <div class="col-md-3">
-        <label for="amount">Amount</label>
-        <input type="text" id="amount" class="form-control" #amountInput >
-    </div>
-    <div class="col-md-auto mt-4">
-        <button class="btn btn-outline-success"(click)="onAddIngredient()"> <i class="fa fa-plus"></i></button>
-        <button class="btn btn-outline-danger mx-2"><i class="fa fa-trash"></i></button>
-        <button class="btn btn-outline-primary"><i class="fa fa-refresh"></i></button>
-    </div>
-</div>
+</form>
