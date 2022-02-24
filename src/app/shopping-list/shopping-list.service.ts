@@ -1,10 +1,13 @@
 import { Ingredients } from './../shared/ingredients.model';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingListService {
+
+  editable= new Subject<number>();
 
   private ingredients:Ingredients[] = [
     new Ingredients("Almond",20),
@@ -16,6 +19,10 @@ export class ShoppingListService {
 
   getIngredients(){
     return this.ingredients;
+  }
+
+  getIngredient(index: number){
+    return this.ingredients[index];
   }
 
   addIngredient(ingredient : Ingredients){

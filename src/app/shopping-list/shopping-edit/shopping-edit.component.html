@@ -9,9 +9,12 @@
             <input type="number" id="amount" class="form-control" name="amount" ngModel required pattern="^[1-9]+[0-9]*$"> 
         </div>
         <div class="col-md-auto mt-4">
-            <button class="btn btn-outline-success" [disabled]="!f.valid"> <i class="fa fa-plus"></i></button>
+            <button class="btn btn-outline-success" [disabled]="!f.valid">
+                <i class="fa fa-plus" *ngIf="!editMode"></i>
+                <i class="fa fa-refresh" *ngIf="editMode"></i>
+            </button>
             <button class="btn btn-outline-danger mx-2"><i class="fa fa-trash"></i></button>
-            <button class="btn btn-outline-primary"><i class="fa fa-refresh"></i></button>
+            <button class="btn btn-outline-primary"><i class="fa fa-eraser"></i></button>
         </div>
     </div>
 </form>
