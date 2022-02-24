@@ -1,6 +1,6 @@
 <div class="row mt-4">
     <div class="col-md-12">
-        <form [formGroup]="recipeForm">
+        <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-12">
                     <label for="name">Name</label>
@@ -28,21 +28,23 @@
             <br>
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="row md-2">
-                        <div class="col-7">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-3">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-2">
-                            <button class="btn btn-outline-danger float-end"><i class="fa fa-trash"></i></button>
-                        </div>
-                    </div>  
+                    <div>
+                        <div class="row mb-2" *ngFor="let ingredientCtrl of ingControls" [formGroup]="ingredientCtrl">
+                            <div class="col-7">
+                                <input type="text" class="form-control" formControlName="name">
+                            </div>
+                            <div class="col-3">
+                                <input type="text" class="form-control" formControlName="amount">
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-outline-danger float-end"><i class="fa fa-trash"></i></button>
+                            </div>
+                        </div>  
+                    </div>
                     <hr>
-                    <button type="button" class="btn btn-outline-success"><i class="fa fa-plus"></i> Add Ingredient</button>
-                    <button type="submit" class="btn btn-outline-danger float-end">Cancel</button>
-                    <button type="button" class="btn btn-outline-success mx-2 float-end">Save</button>   
+                    <button type="button" class="btn btn-outline-success" (click)="onAddIngredient()"><i class="fa fa-plus"></i> Add Ingredient</button>
+                    <button type="button" class="btn btn-outline-danger float-end">Cancel</button>
+                    <button type="submit" class="btn btn-outline-success mx-2 float-end">Save</button>   
                 </div>
             </div>  
         </form>
