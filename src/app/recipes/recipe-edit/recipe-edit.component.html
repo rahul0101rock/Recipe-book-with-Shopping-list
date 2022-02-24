@@ -1,17 +1,17 @@
 <div class="row mt-4">
     <div class="col-md-12">
-        <form>
+        <form [formGroup]="recipeForm">
             <div class="row">
                 <div class="col-12">
                     <label for="name">Name</label>
-                    <input id="name" name="name" class="form-control">
+                    <input id="name" name="name" class="form-control" formControlName="name">
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-12">
                     <label for="imagePath">Image Path</label>
-                    <input id="imagePath" name="imagePath" class="form-control">
+                    <input id="imagePath" name="imagePath" class="form-control" formControlName="imagePath">
                 </div>
             </div>
             <div class="row">
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-12">
                     <label for="description">Description</label>
-                    <textarea id="description" name="description" class="form-control" rows="6"></textarea>
+                    <textarea id="description" name="description" class="form-control" rows="6" formControlName="description"></textarea>
                 </div>
             </div>
             <br>
