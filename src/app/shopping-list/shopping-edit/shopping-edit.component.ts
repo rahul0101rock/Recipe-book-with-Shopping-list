@@ -34,8 +34,15 @@ export class ShoppingEditComponent implements OnInit {
   }
 
   onAddIngredient(form: NgForm){
-    if( form.value.name != "" && form.value.amount != "" )
-    this.shoppingListService.addIngredient(new Ingredients(form.value.name,form.value.amount));
+    if( form.value.name != "" && form.value.amount != "" ){
+      const newIng = new Ingredients(form.value.name,form.value.amount);
+      if (this.editMode){ 
+        this.shoppingListService.updateIngredient(this.editedItemIndex, newIng);
+      }else{
+        this.shoppingListService.addIngredient(newIng);
+      }
+    }
+    
   }
 
 }
