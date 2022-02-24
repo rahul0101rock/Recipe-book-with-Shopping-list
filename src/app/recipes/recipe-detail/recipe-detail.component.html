@@ -1,15 +1,20 @@
 <div class="mt-4"></div>
-<div class="row">
-    <div class="col-12">
-        <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="rounded img-fluid" width="80%">
-    </div>
-</div>
-<div class="row my-2">
+<div class="row my-2 text-center">
     <div class="col-12">
         <h1>{{recipe.name}}</h1>
     </div>
 </div>
 <div class="row">
+    <div class="col-12 text-center">
+        <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="rounded img-fluid" width="100%">
+    </div>
+</div>
+<div class="row my-2">
+    <div class="col-12" style="font-size: large;">
+        {{recipe.description}}
+    </div>
+</div>
+<div class="row my-2">
     <div class="col-12">
        <div class="btn-group">
            <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
@@ -18,16 +23,12 @@
            <ul class="dropdown-menu">
                <li><a style="cursor: pointer;" (click)="onAddToShoppingList()" class="dropdown-item"> To Shopping List </a></li>
                <li><a style="cursor: pointer;" (click)="onEditRecipe()" class="dropdown-item"> Edit Recipe </a></li>
-               <li><a style="cursor: pointer;" class="dropdown-item"> Delete Recipe </a></li>
+               <li><a style="cursor: pointer;" class="dropdown-item bg-danger text-light"> Delete Recipe </a></li>
            </ul>
        </div>
     </div>
 </div>
-<div class="row my-2">
-    <div class="col-12">
-        {{recipe.description}}
-    </div>
-</div>
+
 <div class="row">
     <div class="col-12">
         <ul class="list-group">
@@ -37,3 +38,4 @@
         </ul>
     </div>
 </div>
+<br><br><br><br>

@@ -1,11 +1,11 @@
 <div class="row mt-4">
     <div class="col-12">
-        <button class="btn btn-outline-success" (click)="onNewRecipe()"> New Recipe </button>
+        <app-recipe-item *ngFor="let r of recipes; let i = index" [recipe]="r" [index]="i"></app-recipe-item>
     </div>
 </div>
-<hr>
-<div class="row">
-    <div class="col-12">
-        <app-recipe-item *ngFor="let r of recipes; let i = index" [recipe]="r" [index]="i"></app-recipe-item>
+<hr *ngIf="recipes.length > 0">
+<div class="row ">
+    <div class="col-12 text-center">
+        <button class="btn btn-outline-success" (click)="onNewRecipe()"> Add Recipe</button>
     </div>
 </div>
