@@ -43,7 +43,7 @@
                     </div>
                     <hr>
                     <button type="button" class="btn btn-outline-success" (click)="onAddIngredient()"><i class="fa fa-plus"></i> Add Ingredient</button>
-                    <button type="button" class="btn btn-outline-danger float-end">Cancel</button>
+                    <button type="button" class="btn btn-outline-danger float-end" (click)="onCancel()">Cancel</button>
                     <button type="submit" class="btn btn-outline-success mx-2 float-end" [disabled]="!recipeForm.valid">Save</button>   
                 </div>
             </div>  
