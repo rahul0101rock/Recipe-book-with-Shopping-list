@@ -5,10 +5,11 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RecipesResolver } from './recipes/recipes.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', component: RecipesComponent, children:[
+  { path: 'recipes', component: RecipesComponent ,resolve: [RecipesResolver] , children:[
     { path: '', component: RecipeStartComponent},
     { path: 'new', component: RecipeEditComponent},
     { path: ':id', component: RecipeDetailComponent },
