@@ -9,11 +9,11 @@ import { RecipesResolver } from './recipes/recipes.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', component: RecipesComponent ,resolve: [RecipesResolver] , children:[
-    { path: '', component: RecipeStartComponent},
-    { path: 'new', component: RecipeEditComponent},
-    { path: ':id', component: RecipeDetailComponent },
-    { path: ':id/edit', component: RecipeEditComponent },
+  { path: 'recipes', component: RecipesComponent, children:[
+    { path: '', component: RecipeStartComponent,resolve: [RecipesResolver] },
+    { path: 'new', component: RecipeEditComponent,resolve: [RecipesResolver] },
+    { path: ':id', component: RecipeDetailComponent,resolve: [RecipesResolver] },
+    { path: ':id/edit', component: RecipeEditComponent,resolve: [RecipesResolver] },
   ] },
   { path: 'shopping-list', component: ShoppingListComponent },
 ];
