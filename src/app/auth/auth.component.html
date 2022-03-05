@@ -1,0 +1,26 @@
+<div class="card border-secondary mb-3 mx-auto my-5 col-sm-6 col-10">
+    <div class="card-body">
+        <h1 class="text-center text-secondary my-5">
+            {{ isLoginMode ? "Login" : "SignUp" }}
+        </h1>
+        <div class="row my-4">
+            <div class="col-md-9 mx-auto ">
+                <form>
+                    <div class="form-group mb-2">
+                        <label for="email">E-Mail: </label>
+                        <input type="email" id="email" name="email" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="password">Password: </label>
+                        <input type="password" id="password" name="password" class="form-control">
+                    </div>
+                    <div class="my-4 text-center">
+                        <button class="btn btn-outline-primary">{{ isLoginMode ? "Login" : "SignUp" }}</button> |
+                        <button class="btn btn-outline-primary" type="button" (click)="onSwitchMode()">Switch to {{
+                            isLoginMode ? "Login" : "SignUp" }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
