@@ -5,19 +5,20 @@
         </h1>
         <div class="row my-4">
             <div class="col-md-9 mx-auto ">
-                <form>
+                <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
                     <div class="form-group mb-2">
                         <label for="email">E-Mail: </label>
-                        <input type="email" id="email" name="email" class="form-control">
+                        <input type="email" id="email" name="email" class="form-control" ngModel required email>
                     </div>
                     <div class="form-group mb-2">
                         <label for="password">Password: </label>
-                        <input type="password" id="password" name="password" class="form-control">
+                        <input type="password" id="password" name="password" class="form-control" ngModel required
+                            minlength="8">
                     </div>
                     <div class="my-4 text-center">
-                        <button class="btn btn-outline-primary">{{ isLoginMode ? "Login" : "SignUp" }}</button> |
+                        <button class="btn btn-outline-primary" type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? "Login" : "SignUp" }}</button> |
                         <button class="btn btn-outline-primary" type="button" (click)="onSwitchMode()">Switch to {{
-                            isLoginMode ? "Login" : "SignUp" }}</button>
+                            isLoginMode ? "SignUp" : "Login" }}</button>
                     </div>
                 </form>
             </div>
