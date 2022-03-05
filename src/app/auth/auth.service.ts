@@ -12,8 +12,8 @@ export class AuthService {
     return auth.signInWithEmailAndPassword(auth.getAuth(), email, password);
   }
 
-  signup(email: string, password: string, first_name: string, last_name: string) {
-      auth.createUserWithEmailAndPassword(auth.getAuth(), email, password);
+  signup(email: string, password: string) {
+    return auth.createUserWithEmailAndPassword(auth.getAuth(), email, password)
   }
 
 }

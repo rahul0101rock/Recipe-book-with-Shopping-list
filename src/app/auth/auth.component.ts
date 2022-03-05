@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,7 +12,7 @@ export class AuthComponent implements OnInit {
 
   isLoginMode = true;
 
-  constructor() { }
+  constructor(private authService: AuthService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +22,21 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log(form.value);
+    if(this.isLoginMode){
+      this.authService.login(form.value['email'],form.value['password']).then(
+        response =>{
+          console.log(response);
+          this.router.navigate(['/']);
+        }
+      );
+    }else{
+      this.authService.signup(form.value['email'],form.value['password']).then(
+        response =>{
+          console.log(response);
+          this.router.navigate(['/']);
+        }
+      );
+    }
     form.reset();
   }
 
