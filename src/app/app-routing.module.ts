@@ -1,3 +1,4 @@
+import { LoggedInGuard } from './auth/logged-in.guard';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthComponent } from './auth/auth.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
     { path: ':id/edit', component: RecipeEditComponent,resolve: [RecipesResolver] },
   ] },
   { path: 'shopping-list', component: ShoppingListComponent },
-  { path: 'auth', component: AuthComponent },
+  { path: 'auth', component: AuthComponent,canActivate: [LoggedInGuard] },
 ];
 
 @NgModule({

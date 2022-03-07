@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import * as auth from 'firebase/auth';
 
 @Component({
   selector: 'app-auth',
@@ -14,7 +15,15 @@ export class AuthComponent implements OnInit {
   isLoading = false;
   error: string = null;
 
-  constructor(private authService: AuthService,private router: Router) { }
+  constructor(private authService: AuthService,private router: Router) { 
+    auth.onAuthStateChanged(auth.getAuth(),
+      user => {
+        if (user) {
+          this.router.navigate([""]);
+        }
+      }
+    );
+  }
 
   ngOnInit(): void {
   }
