@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class AuthComponent implements OnInit {
 
   isLoginMode = true;
+  isLoading = false;
 
   constructor(private authService: AuthService,private router: Router) { }
 
@@ -22,18 +23,27 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
+    this.isLoading = true;
     if(this.isLoginMode){
       this.authService.login(form.value['email'],form.value['password']).then(
         response =>{
           console.log(response);
+          this.isLoading =false;
           this.router.navigate(['/']);
+        },error => {
+          console.log(error);
+          this.isLoading =false;
         }
       );
     }else{
       this.authService.signup(form.value['email'],form.value['password']).then(
         response =>{
           console.log(response);
+          this.isLoading =false;
           this.router.navigate(['/']);
+        },error => {
+          console.log(error);
+          this.isLoading =false;
         }
       );
     }

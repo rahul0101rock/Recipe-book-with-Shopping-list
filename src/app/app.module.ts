@@ -21,6 +21,7 @@ import { AuthComponent } from './auth/auth.component';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { LoadingComponent } from './auth/loading/loading.component';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -53,7 +54,8 @@ const analytics = getAnalytics(app);
     HeaderComponent,
     RecipeStartComponent,
     RecipeEditComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
