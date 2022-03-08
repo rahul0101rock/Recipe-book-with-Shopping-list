@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'auth', component: AuthComponent,canActivate: [LoggedInGuard] }
+  { path: '', component: AuthComponent,canActivate: [LoggedInGuard] }
 ];
 
 @NgModule({

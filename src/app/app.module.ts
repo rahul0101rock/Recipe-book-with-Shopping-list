@@ -1,6 +1,3 @@
-import { AuthModule } from './auth/auth.module';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
-import { RecipesModule } from './recipes/recipes.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -35,10 +32,7 @@ const analytics = getAnalytics(app);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    RecipesModule,
-    ShoppingListModule,
-    AuthModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
