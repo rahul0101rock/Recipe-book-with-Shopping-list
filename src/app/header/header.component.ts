@@ -33,16 +33,16 @@ export class HeaderComponent implements OnInit {
       }
     );
   }
-  
-  onSaveData(){
+
+  onSaveData() {
     this.dataStorageService.storeRecipes();
   }
 
-  onFetchData(){
+  onFetchData() {
     this.dataStorageService.fetchRecipes().subscribe();
   }
 
-  onLogOut(){
+  onLogOut() {
     auth.signOut(auth.getAuth());
   }
 }

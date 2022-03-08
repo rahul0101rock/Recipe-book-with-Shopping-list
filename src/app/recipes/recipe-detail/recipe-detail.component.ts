@@ -9,10 +9,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
-  
+
   recipe: Recipe;
-  id:number;
-  constructor(private recipeService : RecipeService,private router: Router, private route: ActivatedRoute) { }
+  id: number;
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -23,15 +23,15 @@ export class RecipeDetailComponent implements OnInit {
     );
   }
 
-  onAddToShoppingList(){
+  onAddToShoppingList() {
     this.recipeService.ingredientsToShoppingList(this.recipe.ingredients);
   }
 
-  onEditRecipe(){
-    this.router.navigate(['edit'],{ relativeTo: this.route });
+  onEditRecipe() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
 
-  onDeleteRecipe(){
+  onDeleteRecipe() {
     this.recipeService.deleteRecipe(this.id);
     this.router.navigate(['/recipes'],);
   }

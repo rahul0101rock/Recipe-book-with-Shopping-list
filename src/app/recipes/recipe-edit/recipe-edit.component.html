@@ -22,14 +22,16 @@
             <div class="row">
                 <div class="col-12">
                     <label for="description">Description</label>
-                    <textarea id="description" name="description" class="form-control" rows="6" formControlName="description"></textarea>
+                    <textarea id="description" name="description" class="form-control" rows="6"
+                        formControlName="description"></textarea>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-xs-12">
                     <div>
-                        <div class="row mb-2" *ngFor="let ingredientCtrl of ingControls; let i = index" [formGroup]="ingredientCtrl">
+                        <div class="row mb-2" *ngFor="let ingredientCtrl of ingControls; let i = index"
+                            [formGroup]="ingredientCtrl">
                             <div class="col-7">
                                 <input type="text" class="form-control" formControlName="name">
                             </div>
@@ -37,16 +39,19 @@
                                 <input type="number" class="form-control" formControlName="amount">
                             </div>
                             <div class="col-2">
-                                <button type="button" class="btn btn-outline-danger float-end" (click)="onDeleteIngredient(i)"><i class="fa fa-trash"></i></button>
+                                <button type="button" class="btn btn-outline-danger float-end"
+                                    (click)="onDeleteIngredient(i)"><i class="fa fa-trash"></i></button>
                             </div>
-                        </div>  
+                        </div>
                     </div>
                     <hr>
-                    <button type="button" class="btn btn-outline-success" (click)="onAddIngredient()"><i class="fa fa-plus"></i> Add Ingredient</button>
+                    <button type="button" class="btn btn-outline-success" (click)="onAddIngredient()"><i
+                            class="fa fa-plus"></i> Add Ingredient</button>
                     <button type="button" class="btn btn-outline-danger float-end" (click)="onCancel()">Cancel</button>
-                    <button type="submit" class="btn btn-outline-success mx-2 float-end" [disabled]="!recipeForm.valid">Save</button>   
+                    <button type="submit" class="btn btn-outline-success mx-2 float-end"
+                        [disabled]="!recipeForm.valid">Save</button>
                 </div>
-            </div>  
+            </div>
         </form>
     </div>
 </div>

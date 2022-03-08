@@ -9,9 +9,9 @@ import { Subscription } from 'rxjs';
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.css']
 })
-export class ShoppingEditComponent implements OnInit ,OnDestroy{
-  @ViewChild('f',{static : false}) slForm :NgForm;
-  editMode=false;
+export class ShoppingEditComponent implements OnInit, OnDestroy {
+  @ViewChild('f', { static: false }) slForm: NgForm;
+  editMode = false;
   editedItemIndex: number;
   editedItem: Ingredients;
 
@@ -22,8 +22,8 @@ export class ShoppingEditComponent implements OnInit ,OnDestroy{
   ngOnInit(): void {
     this.editsub = this.shoppingListService.editable.subscribe(
       (index: number) => {
-        this.editMode=true;
-        this.editedItemIndex=index;
+        this.editMode = true;
+        this.editedItemIndex = index;
         this.editedItem = this.shoppingListService.getIngredient(index);
         this.slForm.setValue({
           name: this.editedItem.name,
@@ -33,30 +33,30 @@ export class ShoppingEditComponent implements OnInit ,OnDestroy{
     );
   }
 
-  onSubmit(form: NgForm){
-    if( form.value.name != "" && form.value.amount != "" ){
-      const newIng = new Ingredients(form.value.name,form.value.amount);
-      if (this.editMode){ 
+  onSubmit(form: NgForm) {
+    if (form.value.name != "" && form.value.amount != "") {
+      const newIng = new Ingredients(form.value.name, form.value.amount);
+      if (this.editMode) {
         this.shoppingListService.updateIngredient(this.editedItemIndex, newIng);
-      }else{
+      } else {
         this.shoppingListService.addIngredient(newIng);
       }
-      this.editMode=false;
+      this.editMode = false;
       form.reset();
-    } 
-  }
-  
-  onClear(){
-    this.slForm.reset();
-    this.editMode=false;
+    }
   }
 
-  onDelete(){
+  onClear() {
+    this.slForm.reset();
+    this.editMode = false;
+  }
+
+  onDelete() {
     this.shoppingListService.deleteIngredient(this.editedItemIndex);
     this.onClear();
   }
 
   ngOnDestroy(): void {
-      this.editsub.unsubscribe();
+    this.editsub.unsubscribe();
   }
 }

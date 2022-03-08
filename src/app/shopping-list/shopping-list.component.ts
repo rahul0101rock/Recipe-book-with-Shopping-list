@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingListComponent implements OnInit {
 
-  ingredients:Ingredients[];
+  ingredients: Ingredients[];
 
   constructor(private shoppingListService: ShoppingListService) { }
 
@@ -16,7 +16,7 @@ export class ShoppingListComponent implements OnInit {
     this.ingredients = this.shoppingListService.getIngredients();
   }
 
-  onEditItem(index: number){
+  onEditItem(index: number) {
     this.shoppingListService.editable.next(index);
   }
 

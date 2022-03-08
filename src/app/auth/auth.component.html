@@ -19,7 +19,8 @@
                             minlength="8">
                     </div>
                     <div class="my-4 text-center">
-                        <button class="btn btn-outline-primary" type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? "Login" : "SignUp" }}</button> |
+                        <button class="btn btn-outline-primary" type="submit" [disabled]="!authForm.valid">{{
+                            isLoginMode ? "Login" : "SignUp" }}</button> |
                         <button class="btn btn-outline-primary" type="button" (click)="onSwitchMode()">Switch to {{
                             isLoginMode ? "SignUp" : "Login" }}</button>
                     </div>

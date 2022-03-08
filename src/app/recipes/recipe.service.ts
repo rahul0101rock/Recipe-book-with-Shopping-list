@@ -25,41 +25,41 @@ export class RecipeService {
   //     new Ingredients("Patty",1)
   //   ])
   // ];
-  private recipes : Recipe[] = [];
+  private recipes: Recipe[] = [];
 
-  recipesChanged = new Subject<Recipe[]>(); 
+  recipesChanged = new Subject<Recipe[]>();
 
   constructor(private shoppingListService: ShoppingListService) { }
 
-  setRecipes(recipe: Recipe[]){
+  setRecipes(recipe: Recipe[]) {
     this.recipes = recipe;
     this.recipesChanged.next(this.recipes);
   }
 
-  getRecipes(){
+  getRecipes() {
     return this.recipes;
   }
 
-  getRecipe(index: number){
+  getRecipe(index: number) {
     return this.recipes[index];
   }
 
-  ingredientsToShoppingList(ingredients : Ingredients[]){
+  ingredientsToShoppingList(ingredients: Ingredients[]) {
     this.shoppingListService.addIngredients(ingredients);
   }
 
-  addRecipe(recipe: Recipe){
+  addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
     this.recipesChanged.next(this.recipes);
   }
 
-  updateRecipe(index: number, newRecipe: Recipe){
+  updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
     this.recipesChanged.next(this.recipes);
   }
 
-  deleteRecipe(index: number){
-    this.recipes.splice(index,1);
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
     this.recipesChanged.next(this.recipes);
   }
 
