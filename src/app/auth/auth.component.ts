@@ -15,47 +15,39 @@ export class AuthComponent implements OnInit {
   isLoading = false;
   error: string = null;
 
-  constructor(private authService: AuthService,private router: Router) { 
-    auth.onAuthStateChanged(auth.getAuth(),
-      user => {
-        if (user) {
-          this.router.navigate([""]);
-        }
-      }
-    );
-  }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSwitchMode(){
-    this.isLoginMode = ! this.isLoginMode;
+  onSwitchMode() {
+    this.isLoginMode = !this.isLoginMode;
   }
 
-  onSubmit(form: NgForm){
+  onSubmit(form: NgForm) {
     this.isLoading = true;
-    if(this.isLoginMode){
-      this.authService.login(form.value['email'],form.value['password']).then(
-        response =>{
+    if (this.isLoginMode) {
+      this.authService.login(form.value['email'], form.value['password']).then(
+        response => {
           console.log(response);
-          this.isLoading =false;
+          this.isLoading = false;
           this.router.navigate(['/']);
-        },error => {
+        }, error => {
           console.log(error);
           this.error = error;
-          this.isLoading =false;
+          this.isLoading = false;
         }
       );
-    }else{
-      this.authService.signup(form.value['email'],form.value['password']).then(
-        response =>{
+    } else {
+      this.authService.signup(form.value['email'], form.value['password']).then(
+        response => {
           console.log(response);
-          this.isLoading =false;
+          this.isLoading = false;
           this.router.navigate(['/']);
-        },error => {
+        }, error => {
           console.log(error);
           this.error = error;
-          this.isLoading =false;
+          this.isLoading = false;
         }
       );
     }
