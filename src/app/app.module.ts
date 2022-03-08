@@ -1,3 +1,4 @@
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { RecipeService } from './recipes/recipe.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
@@ -7,8 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
@@ -16,7 +15,6 @@ import { AuthComponent } from './auth/auth.component';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { LoadingComponent } from './auth/loading/loading.component';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -40,11 +38,8 @@ const analytics = getAnalytics(app);
 @NgModule({
   declarations: [
     AppComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     HeaderComponent,
     AuthComponent,
-    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +47,10 @@ const analytics = getAnalytics(app);
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RecipesModule
+    RecipesModule,
+    ShoppingListModule
   ],
-  providers: [ShoppingListService, RecipeService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
