@@ -1,6 +1,7 @@
 <div *ngIf="isLoading">
     <app-loading></app-loading>
 </div>
+<app-alert [message]="error.message" *ngIf="error" (close)="onHandleError()"></app-alert>
 <div class="card border-secondary mb-3 mx-auto col-sm-6 col-10 mt-5" *ngIf="!isLoading">
     <div class="card-body">
         <h1 class="text-center text-secondary my-5">
@@ -29,4 +30,3 @@
         </div>
     </div>
 </div>
-<div class="alert alert-danger card mx-auto col-sm-6 col-10 " *ngIf="error">{{error.message}}</div>

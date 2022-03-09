@@ -29,11 +29,9 @@ export class AuthComponent implements OnInit {
     if (this.isLoginMode) {
       this.authService.login(form.value['email'], form.value['password']).then(
         response => {
-          console.log(response);
           this.isLoading = false;
           this.router.navigate(['/']);
         }, error => {
-          console.log(error);
           this.error = error;
           this.isLoading = false;
         }
@@ -41,17 +39,19 @@ export class AuthComponent implements OnInit {
     } else {
       this.authService.signup(form.value['email'], form.value['password']).then(
         response => {
-          console.log(response);
           this.isLoading = false;
           this.router.navigate(['/']);
         }, error => {
-          console.log(error);
           this.error = error;
           this.isLoading = false;
         }
       );
     }
     form.reset();
+  }
+
+  onHandleError(){
+    this.error = null;
   }
 
 }
