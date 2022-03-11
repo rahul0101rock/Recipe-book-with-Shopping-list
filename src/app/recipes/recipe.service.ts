@@ -1,5 +1,7 @@
 import { Store } from '@ngrx/store';
+
 import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
+import * as formShoppingList from '../shopping-list/store/shopping-list.reducer';
 import { Subject } from 'rxjs';
 import { ShoppingListService } from './../shopping-list/shopping-list.service';
 import { Ingredients } from './../shared/ingredients.model';
@@ -31,7 +33,7 @@ export class RecipeService {
 
   recipesChanged = new Subject<Recipe[]>();
 
-  constructor(private shoppingListService: ShoppingListService, private store: Store<{ shoppingList: { ingredients: Ingredients[] } }>) { }
+  constructor(private shoppingListService: ShoppingListService, private store: Store<formShoppingList.AppState>) { }
 
   setRecipes(recipe: Recipe[]) {
     this.recipes = recipe;

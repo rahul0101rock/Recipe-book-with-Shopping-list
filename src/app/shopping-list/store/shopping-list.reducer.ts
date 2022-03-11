@@ -1,12 +1,24 @@
 import { Ingredients } from './../../shared/ingredients.model';
 import * as ShoppingListActions from './shopping-list.actions';
 
-const intialState = {
+export interface AppState {
+    shoppingList: State;
+}
+
+export interface State {
+    ingredients: Ingredients[];
+    editedIngredient: Ingredients;
+    editedIngredientIndex: number;
+}
+
+const intialState: State = {
     ingredients: [
         new Ingredients("Almond", 20),
         new Ingredients("Chocolate Bars", 5),
         new Ingredients("Cashews", 25)
-    ]
+    ],
+    editedIngredient: null,
+    editedIngredientIndex: -1
 };
 
 export function shoppingListReducer(state = intialState, action: ShoppingListActions.ShoppingListActions) {
@@ -27,7 +39,7 @@ export function shoppingListReducer(state = intialState, action: ShoppingListAct
                 ...ingredient, ...action.payload.ingredient
             }
             const updatedIngredients = [...state.ingredients];
-            updatedIngredients[action.payload.index] = updatedIngredient;   
+            updatedIngredients[action.payload.index] = updatedIngredient;
             return {
                 ...state,
                 ingredients: updatedIngredients
@@ -36,10 +48,22 @@ export function shoppingListReducer(state = intialState, action: ShoppingListAct
             return {
                 ...state,
                 ingredients: state.ingredients.filter(
-                    (ig,igIndex) => {
+                    (ig, igIndex) => {
                         return igIndex !== action.payload;
                     }
                 )
+            };
+        case ShoppingListActions.START_EDIT:
+            return {
+                ...state,
+                editedIngredientIndex: action.payload,
+                editedIngredient: { ...state.ingredients[action.payload] }
+            };
+        case ShoppingListActions.STOP_EDIT:
+            return {
+                ...state,
+                editedIngredient: null,
+                editedIngredientIndex: -1
             };
         default:
             return state;
