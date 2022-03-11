@@ -12,6 +12,7 @@ import { Store } from '@ngrx/store';
 export class ShoppingListComponent implements OnInit {
 
   ingredients: Observable<{ ingredients: Ingredients[] }>;
+  
 
   constructor(private shoppingListService: ShoppingListService, private store: Store<{ shoppingList: { ingredients: Ingredients[] } }>) { }
 
